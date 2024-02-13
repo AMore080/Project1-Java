@@ -1,6 +1,9 @@
 public class Main {
     public static void main(String[] args) {
+        TicketSystem ticketSystem = new TicketSystem();
+        Visitor visitor1 = new Visitor("Alex", 22);
 
-        System.out.println("Hello world!");
+        ticketSystem.purchaseTicket(visitor1);
+        System.out.println(visitor1.getTicketType());
     }
 }
