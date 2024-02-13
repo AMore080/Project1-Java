@@ -10,4 +10,10 @@ public class TicketSystem {
             visitor.setTicketType("Senior");
         }
     }
+
+    void joinRideQueue(Visitor visitor, String rideName){
+        if(rideName == "Roller Coaster"){
+            visitor.setRidePreference(rideName);
+        }
+    }
 }
