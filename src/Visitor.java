@@ -54,5 +54,9 @@ public class Visitor {
         return ridePreference;
     }
 
-
+    public String toString(){
+        String result = "";
+        result = name + " " + age + " " + ridePreference;
+        return result;
+    }
 }
