@@ -19,6 +19,7 @@ public class Main {
                 case 1:
                     System.out.println("How many visitors will ride today?");
                     int num = sc.nextInt();
+
                     for (int i = 0; i < num; i++) {
                         String nm;
                         int ag;
@@ -26,7 +27,16 @@ public class Main {
                         int rideOption;
 
                         System.out.println("Enter the name of the visitor: ");
-                        nm = sc.next();
+                            while(true){
+                                try {
+                                    nm = sc.next();
+                                    break;
+                                }
+                                catch(InputMismatchException e){
+                                    System.out.print("Enter a valid name: ");
+                                    sc.nextLine();
+                                }
+                            }
 
                         System.out.println("Enter the age: ");
                             while(true){
@@ -44,15 +54,28 @@ public class Main {
                             if(ag >= 18){
                                 System.out.println("1. Roller Coaster");
                                 rideOption = sc.nextInt();
-                                    if(rideOption == 1){
-                                        ride = "Roller Coaster";
+
+                                    while(rideOption != 1) {
+                                        System.out.println("Try again. Select a ride: ");
+                                        System.out.println("1. Roller Coaster");
+                                        rideOption = sc.nextInt();
+
+                                        if(rideOption == 1){
+                                            ride = "Roller Coaster";
+                                        }
                                     }
+
                             } else {
                                 System.out.println("1. Kiddie Coaster");
                                 rideOption = sc.nextInt();
-                                    if(rideOption == 1){
-                                        ride = "Kiddie Coaster";
+
+                                    while(rideOption != 1) {
+                                        System.out.println("Try again. Select a ride: ");
+                                        System.out.println("1. Kiddie Coaster");
+                                        rideOption = sc.nextInt();
                                     }
+
+                                ride = "Kiddie Coaster";
                             }
 
                         Visitor visitor = new Visitor(nm, ag, ride);
