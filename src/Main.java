@@ -15,6 +15,7 @@ public class Main {
             System.out.println("3. Exit program");
 
             option = sc.nextInt();
+
             switch (option) {
                 case 1:
                     System.out.println("How many visitors will ride today?");
@@ -59,23 +60,40 @@ public class Main {
                                         System.out.println("Try again. Select a ride: ");
                                         System.out.println("1. Roller Coaster");
                                         rideOption = sc.nextInt();
-
-                                        if(rideOption == 1){
-                                            ride = "Roller Coaster";
-                                        }
                                     }
+
+                                if(rideOption == 1){
+                                    ride = "Roller Coaster";
+                                }
 
                             } else {
                                 System.out.println("1. Kiddie Coaster");
-                                rideOption = sc.nextInt();
 
-                                    while(rideOption != 1) {
-                                        System.out.println("Try again. Select a ride: ");
-                                        System.out.println("1. Kiddie Coaster");
+                                while(true){
+                                    try
+                                    {
                                         rideOption = sc.nextInt();
-                                    }
 
-                                ride = "Kiddie Coaster";
+                                        while(rideOption != 1) {
+                                            System.out.println("Try again. Select a ride: ");
+                                            System.out.println("1. Kiddie Coaster");
+                                            rideOption = sc.nextInt();
+                                        }
+
+                                        break;
+
+                                    } catch (InputMismatchException e) {
+                                        System.out.println("Enter a valid input: ");
+                                        sc.next();
+                                    }
+                                }
+
+                                if(rideOption == 1){
+                                    ride = "Kiddie Coaster";
+                                } else {
+                                    ride = "Kid";
+                                }
+
                             }
 
                         Visitor visitor = new Visitor(nm, ag, ride);
